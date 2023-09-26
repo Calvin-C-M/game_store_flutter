@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:game_store/components/sidebar.dart';
-import 'package:game_store/pages/my_games.dart';
 import 'package:game_store/pages/store.dart';
 import 'package:sidebarx/sidebarx.dart';
 
@@ -22,6 +21,7 @@ class MainScreenState extends State<MainScreen> {
         builder: (context) {
           return Scaffold(
             key: _key,
+            backgroundColor: const Color.fromARGB(255, 19, 45, 70),
             appBar: AppBar(
               title: const Text(
                 "Game Store",
@@ -51,7 +51,7 @@ class MainScreenState extends State<MainScreen> {
                       return const StorePage();
 
                     case 1:
-                      return const MyGamesPage();
+                      return const StorePage();
 
                     default: 
                       return const StorePage();
