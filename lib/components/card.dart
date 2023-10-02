@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:game_store/detail_game_screen.dart';
+import 'package:game_store/models/game.dart';
 
 String priceTag(price) {
   return (price == "Free") ? "Free to Play" : "Rp$price";
 }
 
+void redirectToDetailScreen(context, Game game) {
+  debugPrint("${game.name} card is clicked");
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return DetailGameScreen(game: game);
+  }));
+}
+
 class FeaturedGameCard extends StatelessWidget {
-  final String name;
-  final String thumbnail;
-  final String price;
+  final Game game;
 
   const FeaturedGameCard({
     Key? key,
-    required this.name,
-    required this.thumbnail,
-    required this.price,
+    required this.game
   }) : super(key: key);
 
   @override
@@ -30,7 +35,7 @@ class FeaturedGameCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Image.network(
-                  thumbnail,
+                  game.thumbnail,
                   fit: BoxFit.fill,
                   height: 200,
                 ),
@@ -41,7 +46,7 @@ class FeaturedGameCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      name,
+                      game.name,
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -49,7 +54,7 @@ class FeaturedGameCard extends StatelessWidget {
                       )
                     ),
                     Text(
-                      priceTag(price),
+                      priceTag(game.price),
                       style: const TextStyle(
                         color: Color.fromARGB(255, 1, 195, 141),
                       )
@@ -60,7 +65,7 @@ class FeaturedGameCard extends StatelessWidget {
             ],
           ),
           onTap: () {
-            debugPrint("$name has been clicked!");
+            redirectToDetailScreen(context, game);
           },
         )
       ),
@@ -69,17 +74,11 @@ class FeaturedGameCard extends StatelessWidget {
 }
 
 class GameCard extends StatelessWidget {
-  final String name;
-  final String thumbnail;
-  final String price;
-  final List<String> tags;
+  final Game game;
   
   const GameCard({
     Key? key, 
-    required this.name, 
-    required this.thumbnail, 
-    required this.price, 
-    required this.tags
+    required this.game
   }) : super(key: key);
 
   final double _cardHeight = 60.0;
@@ -98,7 +97,7 @@ class GameCard extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Image.network(
-                  thumbnail, 
+                  game.thumbnail, 
                   fit: BoxFit.fill,
                   height: _cardHeight,
                 ),
@@ -108,7 +107,7 @@ class GameCard extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Text(
-                    name,
+                    game.name,
                     style: const TextStyle(
                       color: Colors.white,
                     ),
@@ -118,7 +117,7 @@ class GameCard extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Text(
-                  priceTag(price),
+                  priceTag(game.price),
                   style: const TextStyle(
                     // color: Colors.white
                     color: Color.fromARGB(255, 1, 195, 141),
@@ -128,7 +127,7 @@ class GameCard extends StatelessWidget {
             ],
           ),
           onTap: () {
-            debugPrint("$name Card Clicked");
+            redirectToDetailScreen(context, game);
           }
         )
       ),

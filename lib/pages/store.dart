@@ -36,9 +36,7 @@ class FeaturedGamesSection extends StatelessWidget {
             ),
             items: featuredGames.map((game) {
               return FeaturedGameCard(
-                name: game.name,
-                thumbnail: game.thumbnail,
-                price: game.price
+                game: game
               );
             }).toList(),
           ),
@@ -64,10 +62,7 @@ class AllGamesSection extends StatelessWidget {
             child: ListView.builder(
               itemBuilder: (context, index) {
                 return GameCard(
-                  name: gameList[index].name,
-                  thumbnail: gameList[index].thumbnail,
-                  price: gameList[index].price,
-                  tags: gameList[index].tags
+                  game: gameList[index]
                 );
               },
               itemCount: gameList.length,
