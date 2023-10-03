@@ -61,7 +61,7 @@ var gameList = [
     price: "115999",
     creator: "Calvin",
     releasedDate: "October 3, 2023",
-    description: "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).",
+    description: "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?",
     thumbnail: "https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg",
     tags: [
       "Farming Sim", "Life Sim", "Pixel Graphics", "Multiplayer"
