@@ -120,3 +120,5 @@ var featuredGames = [
   gameList[7],
   gameList[9]
 ];
+
+var savedGames = [];
